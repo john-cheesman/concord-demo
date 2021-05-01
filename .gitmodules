@@ -1,0 +1,3 @@
+[submodule "lib/concord"]
+	path = lib/concord
+	url = git@github.com:Tjakka5/Concord
