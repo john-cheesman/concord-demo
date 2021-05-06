@@ -6,7 +6,9 @@ Concord.utils.loadNamespace('systems', systems)
 
 local world = Concord.world()
 
-world:addSystems(systems.bodyRenderer)
+world:addSystems(
+    systems.bodyRenderer,
+    systems.inputController)
 
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest', 1)

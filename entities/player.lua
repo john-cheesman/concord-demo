@@ -6,5 +6,6 @@ return function(world, x, y)
         :give('body', 16, 16)
         :give('velocity')
         :give('type', 'player')
+        :give('input')
 end
 
