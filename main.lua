@@ -8,7 +8,9 @@ local world = Concord.world()
 
 world:addSystems(
     systems.bodyRenderer,
-    systems.inputController)
+    systems.inputController,
+    systems.movementController,
+    systems.positionController)
 
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest', 1)
@@ -21,7 +23,7 @@ function love.load()
 end
 
 function love.update(dt)
-    world:emit('update')
+    world:emit('update', dt)
 end
 
 function love.draw()

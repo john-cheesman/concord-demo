@@ -6,6 +6,8 @@ local M = Concord.system({
 
 function M:init()
     self.joystick = love.joystick.getJoysticks()[1]
+    self.faceButtons = { 'a', 'b', 'x', 'y' }
+    self.keyboardButtons = { 'z', 'x', 's', 'a' }
 end
 
 function M:update()
@@ -31,16 +33,32 @@ function M:update()
                 input.dpad.y = 1
             end
 
-            local faceButtons = { 'a', 'b', 'x', 'y' }
-
-            for _, b in ipairs(faceButtons) do
+            for _, b in ipairs(self.faceButtons) do
                 if self.joystick:isGamepadDown(b) then
                     input[b] = true
                 end
             end
+        else
+            if love.keyboard.isDown('left') then
+                input.dpad.x = -1
+            elseif love.keyboard.isDown('right') then
+                input.dpad.x = 1
+            end
+
+            if love.keyboard.isDown('up') then
+                input.dpad.y = -1
+            elseif love.keyboard.isDown('down') then
+                input.dpad.y = 1
+            end
+
+            for i, b in ipairs(self.keyboardButtons) do
+                if love.keyboard.isDown(b) then
+                    input[self.faceButtons[i]] = true
+                end
+            end
         end
 
-        --print(input.dpad.x, input.dpad.y, input.a, input.b, input.x, input.y)
+       -- print(input.dpad.x, input.dpad.y, input.a, input.b, input.x, input.y)
     end
 end
 
