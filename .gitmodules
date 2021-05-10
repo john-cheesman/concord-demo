@@ -1,3 +1,6 @@
 [submodule "lib/concord"]
 	path = lib/concord
 	url = git@github.com:Tjakka5/Concord
+[submodule "hc"]
+        path = lib/hc
+	url = git@github.com:vrld/hc
