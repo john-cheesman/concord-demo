@@ -4,8 +4,8 @@ function love.conf(t)
 
     -- Window
     t.window.title = 'Concord Demo'
-    t.window.width = 512
-    t.window.height = 480
+    t.window.width = 256
+    t.window.height = 240
     t.window.vsync = false
 
     -- Modules
@@ -31,7 +31,8 @@ function love.conf(t)
             '**/*.yml',
             '**/*.luacheckrc',
             '**/*.ld',
-            'LICENSE'
+            'LICENSE',
+            'README'
         },
         releaseDirectory = 'release'
     }

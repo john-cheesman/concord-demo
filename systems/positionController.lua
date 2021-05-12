@@ -1,13 +1,23 @@
 local Concord = require('lib.concord')
+local HC = require('lib.hc')
 
 local M = Concord.system({
-    pool = { 'position', 'velocity' }
+    pool = { 'body', 'velocity' }
 })
 
 function M:update(dt)
     for _, e in ipairs(self.pool) do
-        local newX, newY = e.position.x + e.velocity.x * dt * e.velocity.speed, e.position.y + e.velocity.y * dt * e.velocity.speed
-        e.position.x, e.position.y = newX, newY
+        local dx, dy = e.velocity.x * dt * e.velocity.speed, e.velocity.y * dt * e.velocity.speed
+
+        e.body.shape:move(dx, dy)
+
+        local cx, cy = 0, 0
+
+        for shape, delta in pairs(HC.collisions(e.body.shape)) do
+            cx, cy = cx + delta.x, cy + delta.y
+        end
+
+        e.body.shape:move(cx, cy)
     end
 end
 

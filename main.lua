@@ -16,10 +16,10 @@ function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest', 1)
 
     require('entities.player')(world, 16, 16)
-    require('entities.wall')(world, 0, 0, 496, 16)
-    require('entities.wall')(world, 496, 0, 16, 464)
-    require('entities.wall')(world, 16, 464, 496, 16)
-    require('entities.wall')(world, 0, 16, 16, 464)
+    require('entities.wall')(world, 0, 0, 240, 16)
+    require('entities.wall')(world, 240, 0, 16, 224)
+    require('entities.wall')(world, 16, 224, 240, 16)
+    require('entities.wall')(world, 0, 16, 16, 224)
 end
 
 function love.update(dt)

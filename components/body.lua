@@ -1,9 +1,7 @@
 local Concord = require('lib.concord')
+local HC = require('lib.hc')
 
-Concord.component('body', function(c, w, h, x, y)
-    c.w = w
-    c.h = h
-    c.x = x or 0
-    c.y = y or 0
+Concord.component('body', function(c, x, y, w, h)
+    c.shape = HC.rectangle(x, y, w, h)
 end)
 
